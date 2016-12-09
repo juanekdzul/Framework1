@@ -23,7 +23,6 @@
  		<li><a href="#">Contactanos</a></li>-->
  	</ul>
  </nav>
- <div align="center" class="login">hola bienvenido <?php echo $_SESSION["username"]; ?>
- <button><a href="<?php echo APP_URL."/users/add/"?>">Nuevo</a></button>
+ <div align="center" class="login">HOLA<?php echo $_SESSION["username"]; ?>
  <button><a href="<?php echo APP_URL."/users/logout";?>">salir</a></button>
 </div>

@@ -6,6 +6,13 @@ class UsersController extends AppController {
 	public function __construct(){
 		parent::__construct();
 	}
+    
+   /*
+    *metodo index
+    *metodo 
+*/
+
+
 
 	public function index(){
 		//opcion 1
@@ -20,13 +27,18 @@ class UsersController extends AppController {
 				$options
 				)
 			);
+
+		$this->set("title", "listar de usuarios");
 		$this->set("usersCount", $this->users->find("users", "count"));
 
 
 		//opcion 2
 		// $users =  $this->users->find("users", "all", $options);
 		// $this->set("users",$users);
-
+       /*
+    *metodo add
+    *metodo  que medoto para agregar un usuario
+*/
 	}
 
 	public function add(){
@@ -47,6 +59,12 @@ class UsersController extends AppController {
 		
 	}
 
+       /*
+    *metodo edit
+    *metodo  que permite edita al usuarios
+*/
+
+    
 	public function edit($id){
 		if ($_POST) {
 
@@ -76,7 +94,10 @@ class UsersController extends AppController {
 		$this->set("types", $this->users->find("types"));
 		
 	}
-
+    /**
+	  *metodo delet
+	  * metodo que permite eliminar a un usuario
+      */
 	public function delete($id){
 		$options = "users.id=".$id;
 		if($this->users->delete("users", $options)){
@@ -85,6 +106,10 @@ class UsersController extends AppController {
 
 	}
 
+	/**
+	*metodo login
+	*metodo que permite validad 
+	*/
 	public function login(){
 		$this->_view->setLayout("login");
 
@@ -113,7 +138,11 @@ class UsersController extends AppController {
 			}	
 		}
 	}
-
+     /*
+     *metodo logout
+     *metodo que permite cerra una seccion
+     *
+     */
 	public function logout(){
 		$auth = new Authorization();
 		$auth->logout();

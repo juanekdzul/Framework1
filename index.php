@@ -15,6 +15,7 @@ require_once(APP_PATH."autoload.php");
 require_once(APP_PATH."controller.php");
 require_once(APP_PATH."model.php");
 require_once(APP_PATH."view.php");
+require_once(APP_PATH."helper.php");
 
 
 //echo "<pre>";

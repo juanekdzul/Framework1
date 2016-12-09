@@ -7,6 +7,10 @@ class TypesController extends AppController {
 		parent::__construct();
 	}
 
+   /*
+    *metodo index
+    *metodo 
+*/
 	public function index(){
 		//opcion 1
 		$options= array(
@@ -28,7 +32,10 @@ class TypesController extends AppController {
 		// $this->set("users",$users);
 
 	}
-
+       /*
+    *metodo add
+    *metodo  para anadir un tipo de usuario
+*/
 	public function add(){
 	if ($_SESSION["type_name"]=="Administradores") {
 		if ($_POST) {
@@ -46,16 +53,14 @@ class TypesController extends AppController {
 
 		
 	}
-
+       /*
+    *metodo edit
+    *metodo  que permite edita al tipo
+*/
 	public function edit($id){
 		if ($_POST) {
 
-			if (!empty($_POST["newName"])) {
-				$pass =new Name();
-			$_POST["name"] = $pass->getPassword($_POST["name"]);
-				
-			}
-			
+
 			if ($this->types->update("types", $_POST)) {
 				$this->redirect(array("controller"=> "types"));
 			}else{
@@ -76,7 +81,10 @@ class TypesController extends AppController {
 		$this->set("types", $this->types->find("types"));
 		
 	}
-
+       /*
+    *metodo delete
+    *metodo  que permite eliminar un tipo
+*/
 	public function delete($id){
 		$options = "users.id=".$id;
 		if($this->types->delete("users", $options)){
@@ -84,6 +92,10 @@ class TypesController extends AppController {
 		}
 
 	}
+	/**
+	*metodo login
+	*metodo que permite validad 
+	*/
 
 	public function login(){
 		$this->_view->setLayout("login");
@@ -113,7 +125,10 @@ class TypesController extends AppController {
 			}	
 		}
 	}
-
+     /** metodo logout
+     *metodo que permite cerra una seccion
+     *
+     */
 	public function logout(){
 		$auth = new Authorization();
 		$auth->logout();
